@@ -1,9 +1,10 @@
 function playmusic(){
+ var strarr = ['gh','master','net','cdn','https','lanyeaudio','jsdelivr','/',':','mp3','.','lanye'];
  var playbox = document.getElementById('audioBox');
  if(playbox.style.display=='none'){	
   var arr = [];
   for(i=1;i<45;i++){
-     arr.push('https://cdn.jsdelivr.net/gh/lanye/lanyeaudio@master/'+i+'.mp3')
+     arr.push(strarr[4]+strarr[8]+strarr[7]+strarr[7]+strarr[3]+strarr[10]+strarr[6]+strarr[10]+strarr[2]+strarr[7]+strarr[0]+strarr[7]+strarr[11]+strarr[7]+strarr[5]+strarr[7]+i+strarr[10]+strarr[9])
   }
   var myAudio = new Audio(); 
   myAudio.preload = true; 
