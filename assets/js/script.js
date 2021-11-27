@@ -4,7 +4,13 @@ function playmusic(str){
  var playbox = document.getElementById('audioBox');
  if(playbox.style.display=='none'){	
   $(str).removeClass('fa-play').addClass('fa-pause');
+  if(document.getElementById('player')){
+	 playbox.style.display='block';
+	 document.getElementById('player').play();
+     return false;
+  }
   var arr = [];
+  arr.push('https://djqcdn.djshow.cn/djs/64/c8/0c4ccd37973355f5_l.m4a');
   for(i=1;i<45;i++){
      arr.push(strarr[4]+strarr[8]+strarr[7]+strarr[7]+strarr[3]+strarr[10]+strarr[6]+strarr[10]+strarr[2]+strarr[7]+strarr[0]+strarr[7]+strarr[11]+strarr[7]+strarr[5]+strarr[7]+i+strarr[10]+strarr[9])
   }
@@ -13,6 +19,7 @@ function playmusic(str){
   myAudio.controls = true; 
   myAudio.controlsList = 'nodownload';
   myAudio.oncontextmenu = 'return false';
+  myAudio.id = 'player';
   myAudio.src = arr.pop();  
   myAudio.addEventListener('ended', playEndedHandler, false); 
   myAudio.play(); 
@@ -27,6 +34,6 @@ function playmusic(str){
 }else{
   $(str).removeClass('fa-pause').addClass('fa-play');
   playbox.style.display='none';
-  playbox.innerHTML='';
+  document.getElementById('player').pause();
 }
 }
